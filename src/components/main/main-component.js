@@ -4,6 +4,8 @@ import WordComponent from "../word/word-component";
 import { Main } from "./main-styled";
 import { useReducer, useState } from "react";
 
+const correct = 
+
 const initialState = { word: [[], [], [], [], []], line: 0 };
 
 function reducer(state, action) {
