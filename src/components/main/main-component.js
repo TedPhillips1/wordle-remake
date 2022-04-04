@@ -3,15 +3,16 @@ import KeyboardComponent from "../keyboard/keyboard-component";
 import WordComponent from "../word/word-component";
 import { Main } from "./main-styled";
 import { useReducer, useState } from "react";
+import { wordsArr, words } from "../../words";
 
-const correct = 
+const correct = wordsArr(words);
 
 const initialState = { word: [[], [], [], [], []], line: 0 };
 
 function reducer(state, action) {
   switch (action) {
     case "Enter":
-      console.log(state);
+      console.log(correct);
       if (state.word[state.line].length === 5) {
         return { ...state, line: state.line + 1 };
       } else {

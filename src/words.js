@@ -1,4 +1,27 @@
-const words =
+export const words =
   "assetaudioauditavoidawardawarebadlybakerbasesbasicbasisbeachbeganbeginbegunbeingbelowbenchbillybirthblackblameblindblockbloodboardboostboothboundbrainbrandbreadbreakbreedbriefbringbroadbrokebrownbuildbuiltbuyercablecalifcarrycatchcausechainchairchartchasecheapcheckchestchiefchildchinachosecivilclaimclasscleanclearclickclockclosecoachcoastcouldcountcourtcovercraftcrashcreamcrimecrosscrowdcrowncurvecycledailydancedateddealtdeathdebutdelaydepthdoingdoubtdozendraftdramadrawndreamdressdrilldrinkdrivedrovedyingeagerearlyeartheighteliteemptyenemyenjoyenterentryequalerroreventeveryexactexistextrafaithfalsefaultfiberfieldfifthfiftyfightfinalfirstfixedflashfleetfloorfluidfocusforceforthfortyforumfoundframefrankfraudfreshfrontfruitfullyfunnygiantgivenglassglobegoinggracegradegrandgrantgrassgreatgreengrossgroupgrownguardguessguestguidehappyharryheartheavyhencehenryhorsehotelhousehumanidealimageindexinnerinputissuejapanjimmyjointjonesjudgeknownlabellargelaserlaterlaughlayerlearnleaseleastleavelegallevellewislightlimitlinksliveslocallogiclooselowerluckylunchlyingmagicmajormakermarchmariamatchmaybemayormeantmediametalmightminorminusmixedmodelmoneymonthmoralmotormountmousemouthmoviemusicneedsnevernewlynightnoisenorthnotednovelnurseoccuroceanofferoftenorderotheroughtpaintpanelpaperpartypeacepeterphasephonephotopiecepilotpitchplaceplainplaneplantplatepointpoundpowerpresspriceprideprimeprintpriorprizeproofproudprovequeenquickquietquiteradioraiserangerapidratioreachreadyreferrightrivalriverrobinrogerromanroughroundrouteroyalruralscalescenescopescoresenseservesevenshallshapesharesharpsheetshelfshellshiftshirtshockshootshortshownsightsincesixthsixtysizedskillsleepslidesmallsmartsmilesmithsmokesolidsolvesorrysoundsouthspacesparespeakspeedspendspentsplitspokesportstaffstagestakestandstartstatesteamsteelstickstillstockstonestoodstorestormstorystripstuckstudystuffstylesugarsuitesupersweettabletakentastetaxesteachteethterrytexasthankthefttheirthemetherethesethickthingthinkthirdthosethreethrewthrowtighttimestiredtitletodaytopictotaltouchtoughtowertracktradetraintreattrendtrialtriedtriestrucktrulytrusttruthtwiceunderundueunionunityuntilupperupseturbanusageusualvalidvaluevideovirusvisitvitalvoicewastewatchwaterwheelwherewhichwhilewhitewholewhosewomanwomenworldworryworseworstworthwouldwoundwritewrongwroteyieldyoungyouth";
 
-const wordsArr = () => {};
+export const wordsArr = (str) => {
+  let arr = str.split("");
+  let array = [];
+  let wordArr = arr.map((letter) => {
+    if (array.length < 5) {
+      array.push(letter);
+    } else {
+      array = [];
+      array.push(letter);
+    }
+    return array;
+  });
+  let count = 1;
+  let finalArr = wordArr.filter(() => {
+    if (count === 5) {
+      count = 1;
+      return true;
+    } else {
+      count++;
+      return false;
+    }
+  });
+  return finalArr;
+};
