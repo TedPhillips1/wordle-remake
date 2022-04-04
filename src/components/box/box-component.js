@@ -4,7 +4,7 @@ import { Box } from "./box-styled";
 
 function BoxComponent({ letter, distance }) {
   return (
-    <Box>
+    <Box distance={distance}>
       <LetterComponent letter={letter} />
       <NumberComponent distance={distance} />
     </Box>

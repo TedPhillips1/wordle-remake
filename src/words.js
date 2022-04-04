@@ -6,10 +6,10 @@ export const wordsArr = (str) => {
   let array = [];
   let wordArr = arr.map((letter) => {
     if (array.length < 5) {
-      array.push(letter);
+      array.push(letter.toUpperCase());
     } else {
       array = [];
-      array.push(letter);
+      array.push(letter.toUpperCase());
     }
     return array;
   });
@@ -24,4 +24,9 @@ export const wordsArr = (str) => {
     }
   });
   return finalArr;
+};
+
+export const pickWord = (wordArr) => {
+  let randomNum = Math.floor(Math.random() * 466);
+  return wordArr[randomNum];
 };
