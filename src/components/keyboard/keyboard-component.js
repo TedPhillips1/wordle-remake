@@ -33,13 +33,22 @@ const keyArr = [
   "M",
 ];
 
-function KeyboardComponent({ dispatch, enter, del }) {
+function KeyboardComponent({ dispatch, enter, del, keyboard }) {
   return (
     <Keyboard>
-      <KBRow1Component keyArr={keyArr.slice(0, 10)} onClick={dispatch} />
-      <KBRow2Component keyArr={keyArr.slice(10, 19)} onClick={dispatch} />
+      <KBRow1Component
+        keyArr={keyArr.slice(0, 10)}
+        keyboard={keyboard.slice(0, 10)}
+        onClick={dispatch}
+      />
+      <KBRow2Component
+        keyArr={keyArr.slice(10, 19)}
+        keyboard={keyboard.slice(10, 19)}
+        onClick={dispatch}
+      />
       <KBRow3Component
         keyArr={keyArr.slice(19)}
+        keyboard={keyboard.slice(19)}
         onClick={dispatch}
         enter={enter}
         del={del}

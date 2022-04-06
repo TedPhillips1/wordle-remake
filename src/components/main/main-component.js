@@ -1,21 +1,54 @@
 import ContainerComponent from "../container/container-component";
 import KeyboardComponent from "../keyboard/keyboard-component";
-import WordComponent from "../word/word-component";
 import { Main } from "./main-styled";
 import { useReducer, useState } from "react";
 import { wordsArr, words, pickWord } from "../../words";
 import { checkWord } from "../../check-word";
+import { keyboardUpdate } from "../../keyboard-update";
 
 const wordArr = wordsArr(words);
 const correct = pickWord(wordArr);
 
-const initialState = { word: [[], [], [], [], []], line: 0 };
+const initialState = {
+  word: [[], [], [], [], []],
+  line: 0,
+  keyboard: [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+  ],
+};
 
 function reducer(state, action) {
   switch (action) {
     case "Enter":
-      console.log(checkWord(correct, state.word[state.line]), correct);
-      let checkedArr = checkWord(correct, state.word[state.line]);
+      console.log(correct);
+      const checkedArr = checkWord(correct, state.word[state.line]);
+      const updatedKeyboard = keyboardUpdate(state.keyboard, checkedArr);
+      console.log(updatedKeyboard);
       if (state.word[state.line].length === 5) {
         return {
           ...state,
@@ -25,6 +58,7 @@ function reducer(state, action) {
             ...state.word.slice(state.line + 1),
           ],
           line: state.line + 1,
+          keyboard: updatedKeyboard,
         };
       } else {
         return state;
@@ -73,6 +107,7 @@ function MainComponent() {
         del={() => {
           dispatch("Delete");
         }}
+        keyboard={word.keyboard}
       />
     </Main>
   );
